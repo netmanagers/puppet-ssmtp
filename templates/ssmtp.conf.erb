@@ -1,0 +1,30 @@
+# This file is managed by Puppet. DO NOT EDIT.
+Root=<%= scope.lookupvar('ssmtp::root_destination') %>
+MailHub=<%= scope.lookupvar('ssmtp::mailhub') %><% if scope.lookupvar('ssmtp::port') != '' %>:<%= scope.lookupvar('ssmtp::port') %><% end %>
+<% if scope.lookupvar('ssmtp::rewrite_domain') != '' -%>
+RewriteDomain=<%= scope.lookupvar('ssmtp::rewrite_domain') %>
+<% end -%>
+<% if scope.lookupvar('ssmtp::hostname') != '' -%>
+Hostname=<%= scope.lookupvar('ssmtp::hostname') %>
+<% end -%>
+<% if scope.lookupvar('ssmtp::from_line_override') != '' -%>
+FromLineOverride=<%= scope.lookupvar('ssmtp::from_line_override') %>
+<% end -%>
+<% if scope.lookupvar('ssmtp::use_tls') != '' -%>
+UseTLS=<%= scope.lookupvar('ssmtp::use_tls') %>
+<% end -%>
+<% if scope.lookupvar('ssmtp::use_starttls') != '' -%>
+UseSTARTTLS=<%= scope.lookupvar('ssmtp::use_starttls') %>
+<% end -%>
+<% if scope.lookupvar('ssmtp::tls_cert') != '' -%>
+TLSCert=<%= scope.lookupvar('ssmtp::tls_cert') %>
+<% end -%>
+<% if scope.lookupvar('ssmtp::auth_user') != '' -%>
+AuthUser=<%= scope.lookupvar('ssmtp::auth_user') %>
+<% end -%>
+<% if scope.lookupvar('ssmtp::auth_pass') != '' -%>
+AuthPass=<%= scope.lookupvar('ssmtp::auth_pass') %>
+<% end -%>
+<% if scope.lookupvar('ssmtp::auth_method') != '' -%>
+AuthMethod=<%= scope.lookupvar('ssmtp::auth_method') %>
+<% end -%>

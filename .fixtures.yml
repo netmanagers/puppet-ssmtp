@@ -1,0 +1,7 @@
+fixtures:
+  repositories:
+    "puppi": "git://github.com/example42/puppi.git"
+    "concat":   "https://github.com/ripienaar/puppet-concat.git"
+  symlinks:
+    "ssmtp": "#{source_dir}"
+
