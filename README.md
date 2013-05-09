@@ -2,7 +2,7 @@
 
 This is a Puppet module for ssmtp based on the second generation layout ("NextGen") of Example42 Puppet Modules.
 
-Made by Javier Bértoli / Netmanagers
+Made by Javier Bertoli / Netmanagers
 
 Official site: http://www.netmanagers.com.ar
 
@@ -51,7 +51,7 @@ This module requires functions provided by the Example42 Puppi module (you need 
 
 * Module dry-run: Do not make any change on *all* the resources provided by the module
 
-        class { 'standard42':
+        class { 'ssmtp':
           noops => true
         }
 
