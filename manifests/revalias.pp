@@ -50,7 +50,6 @@ define ssmtp::revalias (
       warn    => true,
       owner   => $ssmtp::config_file_owner,
       group   => $ssmtp::config_file_group,
-      notify  => Service['ssmtp'],
     }
   }
   concat::fragment{ "ssmtp_revaliases_$name":
@@ -58,6 +57,5 @@ define ssmtp::revalias (
     target  => $ssmtp::revaliases_file,
     content => template($ssmtp::revaliases_template),
     order   => $real_order,
-    notify  => Service['ssmtp'],
   }
 }
