@@ -1,5 +1,5 @@
 name    'netmanagers-ssmtp'
-version '1.0.1'
+version '1.0.2'
 author  'Javier Bertoli'
 license 'Apache2'
 project_page 'http://www.netmanagers.com.ar'
