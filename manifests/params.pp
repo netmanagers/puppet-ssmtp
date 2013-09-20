@@ -44,7 +44,7 @@ class ssmtp::params {
   }
 
   $config_file_mode = $::osfamily ? {
-    default => '0644',
+    default => '0640',
   }
 
   $config_file_owner = $::osfamily ? {
@@ -52,7 +52,7 @@ class ssmtp::params {
   }
 
   $config_file_group = $::osfamily ? {
-    default => 'root',
+    default => 'mail',
   }
 
   # General Settings

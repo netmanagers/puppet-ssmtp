@@ -9,6 +9,7 @@ describe 'ssmtp' do
   describe 'Test minimal installation' do
     it { should contain_package('ssmtp').with_ensure('present') }
     it { should contain_file('ssmtp.conf').with_ensure('present') }
+    it { should contain_file('ssmtp.conf').with_mode('0640') }
   end
 
   describe 'Test installation of a specific version' do
@@ -18,19 +19,30 @@ describe 'ssmtp' do
 
   describe 'Test ssmtp.conf managed throuh template' do
     let(:facts) { {:operatingsystem => 'Debian' } }
-    let(:params) { {:template => 'ssmtp/ssmtp.conf.erb', 
-                    :auth_method => 'cram-md5',
-                    :auth_user => 'someuser',
-                    :auth_pass => 'somepassword' } }
-    it { should contain_file('ssmtp.conf').without_source }
-    it { should contain_file('ssmtp.conf').with_content("# This file is managed by Puppet. DO NOT EDIT.
+    let(:params) do
+      {
+        :template          => 'ssmtp/ssmtp.conf.erb', 
+        :auth_method       => 'cram-md5',
+        :auth_user         => 'someuser',
+        :auth_pass         => 'somepassword',
+        :config_file_owner => 'mail',
+        :config_file_group => 'other',
+        :config_file_mode  => '0600'
+      }
+    end
+    let(:expected) do
+'# This file is managed by Puppet. DO NOT EDIT.
 Root=postmaster
 MailHub=mail
 Hostname=rspec.example42.com
 AuthUser=someuser
 AuthPass=somepassword
 AuthMethod=cram-md5
-") }
+'
+    end
+    it { should contain_file('ssmtp.conf').without_source }
+    it { should contain_file('ssmtp.conf').with_mode('0600').with_owner('mail').with_group('other') }
+    it { should contain_file('ssmtp.conf').with_content(expected) }
   end
 
   describe 'Test decommissioning - absent' do

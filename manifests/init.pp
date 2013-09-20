@@ -139,6 +139,9 @@ class ssmtp (
   $auth_user           = params_lookup( 'auth_user' ),
   $auth_pass           = params_lookup( 'auth_pass' ),
   $auth_method         = params_lookup( 'auth_method' ),
+  $config_file_mode    = params_lookup( 'config_file_mode' ),
+  $config_file_owner   = params_lookup( 'config_file_owner' ),
+  $config_file_group   = params_lookup( 'config_file_group' ),
   $revaliases_file     = params_lookup( 'revaliases_file' ),
   $revaliases_template = params_lookup( 'revaliases_template' ),
   $my_class            = params_lookup( 'my_class' ),
@@ -152,10 +155,6 @@ class ssmtp (
   $package             = params_lookup( 'package' ),
   $config_file         = params_lookup( 'config_file' )
 ) inherits ssmtp::params {
-
-  $config_file_mode=$ssmtp::params::config_file_mode
-  $config_file_owner=$ssmtp::params::config_file_owner
-  $config_file_group=$ssmtp::params::config_file_group
 
   $bool_absent=any2bool($absent)
   $bool_audit_only=any2bool($audit_only)
