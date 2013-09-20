@@ -52,7 +52,7 @@ define ssmtp::revalias (
       group   => $ssmtp::config_file_group,
     }
   }
-  concat::fragment{ "ssmtp_revaliases_$name":
+  concat::fragment{ "ssmtp_revaliases_${name}":
     ensure  => $ensure,
     target  => $ssmtp::revaliases_file,
     content => template($ssmtp::revaliases_template),
