@@ -15,7 +15,6 @@ describe 'ssmtp::revalias' do
                      :mailhub => 'some_mail_relay',
                      :enable  => true, } }
 
-    it { should include_class('concat::setup') }
     it { should contain_concat__fragment('ssmtp_revaliases_sample1').with_target('/etc/ssmtp/revaliases').with_content("sample1:someone@somewhere.com:some_mail_relay\n")
     }
   end
