@@ -27,7 +27,6 @@ define ssmtp::revalias (
   $order     = '',
   $enable    = true ) {
 
-  include concat::setup
   include ssmtp
 
   $real_revalias = $revalias ? {
