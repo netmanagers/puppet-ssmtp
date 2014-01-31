@@ -53,7 +53,7 @@
 #
 # [*auth_method*]
 #   The authorization method to use. If unset, plain text is used.
-#   May also be set to “cram-md5”.
+#   May also be set to "cram-md5".
 #
 # [*my_class*]
 #   Name of a custom class to autoload to manage module's customizations
