@@ -21,6 +21,7 @@ class ssmtp::params {
   $hostname = $::fqdn
   $from_line_override = ''
   $use_tls = ''
+  $tls_ca_file = ''
   $use_starttls = ''
   $tls_cert = ''
   $auth_user = ''

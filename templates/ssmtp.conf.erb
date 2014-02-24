@@ -13,6 +13,9 @@ FromLineOverride=<%= scope.lookupvar('ssmtp::from_line_override') %>
 <% if scope.lookupvar('ssmtp::use_tls') != '' -%>
 UseTLS=<%= scope.lookupvar('ssmtp::use_tls') %>
 <% end -%>
+<% if scope.lookupvar('ssmtp::tls_ca_file') != '' -%>
+TLS_CA_File=<%= scope.lookupvar('ssmtp::tls_ca_file') %>
+<% end -%>
 <% if scope.lookupvar('ssmtp::use_starttls') != '' -%>
 UseSTARTTLS=<%= scope.lookupvar('ssmtp::use_starttls') %>
 <% end -%>

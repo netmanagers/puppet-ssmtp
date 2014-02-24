@@ -37,6 +37,15 @@
 #   Specifies whether ssmtp uses TLS to talk to the SMTP server.
 #   Default: no
 #
+# [*tls_ca_file*]
+#   Specifies ca file to use
+#   Some distros need CA file to be specified or sSMTP will fail to validate the
+#   server certificate
+#   (Thanks Paul Houghton, @pahoughton)
+#   See: https://bugzilla.redhat.com/show_bug.cgi?id=1004998
+#        https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=662960
+#   Default: empty
+#
 # [*use_starttls*]
 #   Specifies whether ssmtp does a EHLO/STARTTLS before starting SSL
 #   negotiation. See RFC 2487.
@@ -134,6 +143,7 @@ class ssmtp (
   $hostname            = params_lookup( 'hostname' ),
   $from_line_override  = params_lookup( 'from_line_override' ),
   $use_tls             = params_lookup( 'use_tls' ),
+  $tls_ca_file         = params_lookup( 'tls_ca_file' ),
   $use_starttls        = params_lookup( 'use_starttls' ),
   $tls_cert            = params_lookup( 'tls_cert' ),
   $auth_user           = params_lookup( 'auth_user' ),
